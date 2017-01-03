@@ -26,6 +26,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+.idea
 node_modules
 typings
 dist
