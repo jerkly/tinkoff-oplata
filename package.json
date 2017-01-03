@@ -1,0 +1,19 @@
+{
+  "name": "tinkoff-oplata",
+  "version": "0.0.1",
+  "description": "NodeJS client for internet acquiring of Tinkoff Bank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerkly/tinkoff-oplata.git"
+  },
+  "author": "Nikolay Martynenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jerkly/tinkoff-oplata/issues"
+  },
+  "homepage": "https://github.com/jerkly/tinkoff-oplata#readme"
+}
