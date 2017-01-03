@@ -28,7 +28,7 @@ gulp.task(package.name + ':build-ts', function () {
 });
 
 gulp.task(package.name + ':build-copy', function () {
-    return gulp.src(['package.json']).pipe(gulp.dest(DIST_FOLDER));
+    return gulp.src(['package.json', 'readme.md', 'license.md']).pipe(gulp.dest(DIST_FOLDER));
 });
 
 gulp.task(package.name + ':dist-clean', function () {
