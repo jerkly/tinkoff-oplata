@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "cd ./dist && npm install npm publish"
+    "publish": "cd ./dist && npm install --only=production && npm publish"
   },
   "repository": {
     "type": "git",
