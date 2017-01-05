@@ -1,4 +1,7 @@
-export interface Options {
+import {OptionsBase} from "./OptionsBase";
+import {ResponseBodyBase} from "./ResponseBodyBase";
+
+export interface InitOptions extends OptionsBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком.
      * Max length: 20
@@ -82,7 +85,7 @@ export interface Options {
     DATA: string;
 }
 
-export interface ResponseBody {
+export interface InitResponseBody extends ResponseBodyBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */

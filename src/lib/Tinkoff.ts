@@ -1,8 +1,8 @@
-import * as Init from './api/Init';
-import * as Confirm from './api/Confirm';
-import * as Charge from './api/Charge';
-import * as Cancel from './api/Cancel';
-import * as GetState from './api/GetState';
+import {CancelOptions, CancelResponseBody} from './api/Cancel';
+import {ChargeOptions, ChargeResponseBody} from './api/Charge';
+import {ConfirmOptions, ConfirmResponseBody} from './api/Confirm';
+import {GetStateOptions, GetStateResponseBody} from './api/GetState';
+import {InitOptions, InitResponseBody} from './api/Init';
 
 export interface TinkoffOptions {
     terminalKey: string
@@ -10,15 +10,15 @@ export interface TinkoffOptions {
 }
 
 export interface Tinkoff {
-    init(options: Init.Options, callback: (error, body: Init.ResponseBody) => void);
-    confirm(options: Confirm.Options, callback: (error, body: Confirm.ResponseBody) => void);
-    charge(options: Charge.Options, callback: (error, body: Charge.ResponseBody) => void);
-    cancel(options: Cancel.Options, callback: (error, body: Cancel.ResponseBody) => void);
-    getState(options: GetState.Options, callback: (error, body: GetState.ResponseBody) => void);
+    init(options: InitOptions, callback: (error, body: InitResponseBody) => void): void;
+    confirm(options: ConfirmOptions, callback: (error, body: ConfirmResponseBody) => void): void;
+    charge(options: ChargeOptions, callback: (error, body: ChargeResponseBody) => void): void;
+    cancel(options: CancelOptions, callback: (error, body: CancelResponseBody) => void): void;
+    getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void): void;
 }
 
 export interface TinkoffConstructor {
     new (options: TinkoffOptions): Tinkoff;
 }
 
-declare let Tinkoff: TinkoffConstructor;
+export let Tinkoff: TinkoffConstructor;

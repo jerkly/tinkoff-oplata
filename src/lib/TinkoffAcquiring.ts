@@ -1,11 +1,11 @@
 import crypto = require('crypto');
 import {Tinkoff, TinkoffOptions} from "./Tinkoff";
 
-import * as Init from './api/Init';
-import * as Confirm from './api/Confirm';
-import * as Charge from './api/Charge';
-import * as Cancel from './api/Cancel';
-import * as GetState from './api/GetState';
+import {CancelOptions, CancelResponseBody} from './api/Cancel';
+import {ChargeOptions, ChargeResponseBody} from './api/Charge';
+import {ConfirmOptions, ConfirmResponseBody} from './api/Confirm';
+import {GetStateOptions, GetStateResponseBody} from './api/GetState';
+import {InitOptions, InitResponseBody} from './api/Init';
 
 import {OptionsBase} from "./api/OptionsBase";
 import {ResponseBodyBase} from "./api/ResponseBodyBase";
@@ -29,23 +29,23 @@ export class TinkoffAcquiring implements Tinkoff {
         this.password = options.password;
     }
 
-    init(options: Init.Options, callback: (error, body: Init.ResponseBody) => void) {
+    init(options: InitOptions, callback: (error, body: InitResponseBody) => void) {
         this.perform(options, callback);
     }
 
-    confirm(options: Confirm.Options, callback: (error, body: Confirm.ResponseBody) => void) {
+    confirm(options: ConfirmOptions, callback: (error, body: ConfirmResponseBody) => void) {
         this.perform(options, callback);
     }
 
-    charge(options: Charge.Options, callback: (error, body: Charge.ResponseBody) => void) {
+    charge(options: ChargeOptions, callback: (error, body: ChargeResponseBody) => void) {
         this.perform(options, callback);
     }
 
-    cancel(options: Cancel.Options, callback: (error, body: Cancel.ResponseBody) => void) {
+    cancel(options: CancelOptions, callback: (error, body: CancelResponseBody) => void) {
         this.perform(options, callback);
     }
 
-    getState(options: GetState.Options, callback: (error, body: GetState.ResponseBody) => void) {
+    getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void) {
         this.perform(options, callback);
     }
 

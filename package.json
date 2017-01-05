@@ -1,6 +1,6 @@
 {
   "name": "tinkoff-oplata",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "NodeJS client for internet acquiring of Tinkoff Bank",
   "main": "index.js",
   "scripts": {

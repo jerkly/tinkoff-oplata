@@ -1,4 +1,7 @@
-export interface Options {
+import {OptionsBase} from "./OptionsBase";
+import {ResponseBodyBase} from "./ResponseBodyBase";
+
+export interface GetStateOptions extends OptionsBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */
@@ -20,7 +23,7 @@ export interface Options {
     Token: string;
 }
 
-export interface ResponseBody {
+export interface GetStateResponseBody extends ResponseBodyBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */

@@ -1,4 +1,7 @@
-export interface Options {
+import {OptionsBase} from "./OptionsBase";
+import {ResponseBodyBase} from "./ResponseBodyBase";
+
+export interface ConfirmOptions extends OptionsBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */
@@ -25,7 +28,7 @@ export interface Options {
     Token: string;
 }
 
-export interface ResponseBody {
+export interface ConfirmResponseBody extends ResponseBodyBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */

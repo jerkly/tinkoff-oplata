@@ -1,4 +1,7 @@
-export interface Options {
+import {OptionsBase} from "./OptionsBase";
+import {ResponseBodyBase} from "./ResponseBodyBase";
+
+export interface CancelOptions extends OptionsBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */
@@ -30,7 +33,7 @@ export interface Options {
     Amount?: number;
 }
 
-export interface ResponseBody {
+export interface CancelResponseBody extends ResponseBodyBase {
     /**
      * Идентификатор терминала, выдается Продавцу Банком
      */
