@@ -1,0 +1,19 @@
+export enum Status {
+    NEW = <any> 'NEW',
+    CANCELED = <any> 'CANCELED',
+    PREAUTHORIZING = <any> 'PREAUTHORIZING',
+    FORMSHOWED = <any> 'FORMSHOWED',
+    AUTHORIZING = <any> 'AUTHORIZING',
+    _3DS_CHECKING = <any> '3DS_CHECKING',
+    _3DS_CHECKED = <any> '3DS_CHECKED',
+    AUTHORIZED = <any> 'AUTHORIZED',
+    REVERSING = <any> 'REVERSING',
+    REVERSED = <any> 'REVERSED',
+    CONFIRMING = <any> 'CONFIRMING',
+    CONFIRMED = <any> 'CONFIRMED',
+    REFUNDING = <any> 'REFUNDING',
+    REFUNDED = <any> 'REFUNDED',
+    PARTIAL_REFUNDED = <any> 'PARTIAL_REFUNDED',
+    REJECTED = <any> 'REJECTED',
+    UNKNOWN = <any> 'UNKNOWN'
+}

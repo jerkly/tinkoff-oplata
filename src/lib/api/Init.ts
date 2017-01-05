@@ -1,44 +1,44 @@
-export interface InitOptions {
+export interface Options {
     /**
      * Идентификатор терминала, выдается Продавцу Банком.
      * Max length: 20
      */
-    terminalKey: string;
+    TerminalKey: string;
 
     /**
      * Сумма в копейках.
      * Max length: 10
      */
-    amount: number;
+    Amount: number;
 
     /**
      * Номер заказа в системе Продавца.
      * Max length: 50
      */
-    orderId: string;
+    OrderId: string;
 
     /**
      * IP-адрес клиента.
      * Max length: 40
      */
-    ip?: string;
+    IP?: string;
 
     /**
      * Краткое описание.
      * Max length: 250
      */
-    description?: string;
+    Description?: string;
 
     /**
      * Код валюты ISO 4217 (например, 643). Если передан Currency, и он разрешен для Продавца, то транзакция будет инициирована в переданной валюте. Иначе будет использована валюта по умолчанию для данного терминала
      * Max length: 3
      */
-    currency: number;
+    Currency: number;
 
     /**
      * Подпись запроса. Алгоритм формирования подписи описан в разделе "Подпись запросов"
      */
-    token: string;
+    Token: string;
 
     /**
      * Язык платежной формы. По умолчанию (если параметр не передан) - форма оплаты на русском языке.
@@ -46,28 +46,28 @@ export interface InitOptions {
      * en - форма оплаты на англифском языке.
      * Max length: 2
      */
-    language?: string;
+    Language?: string;
 
     /**
      * Идентификатор покупателя в системе Продавца. Если передается, то для данного покупателя будет осуществлена привязка карты к данному идентификатору клиента CustomerKey. В нотификации на AUTHORIZED будет передан параметр CardId, подробнее см. метод GetGardList
      * Параметр обязателен, если Recurrent = Y
      * Max length: 36
      */
-    customerKey?: string;
+    CustomerKey?: string;
 
     /**
      * Если передается и установлен в Y, то регистрирует платеж как рекуррентный.
      * В этом случае после оплаты в нотификации на AUTHORIZED будет передан параметр RebillId для использования в методе Charge
      * Max length: 1
      */
-    recurrent?: string;
+    Recurrent?: string;
 
     /**
      * Cрок жизни ссылки. В случае, если текущая дата превышает дату переданную в данном параметре, ссылка для оплаты становится недоступной и платеж выполнить нельзя.
      *  Формат даты: YYYY-MM-DDTHH24:MI:SS+GMT
      *  Пример даты: 2016-08-31T12:28:00+03:00
      */
-    redirectDueDate?: Date;
+    RedirectDueDate?: Date;
 
     /**
      * Ключ=значение дополнительных параметров через “|”, например Email=a@test.ru|Phone=+71234567890.
@@ -80,4 +80,58 @@ export interface InitOptions {
      * Пример передачи данных в параметре DATA: DATA=Phone=+71234567890|Email=a@test.com
      */
     DATA: string;
+}
+
+export interface ResponseBody {
+    /**
+     * Идентификатор терминала, выдается Продавцу Банком
+     */
+    TerminalKey: string;
+
+    /**
+     * Сумма в копейках
+     */
+    Amount: number;
+
+    /**
+     * Номер заказа в системе Продавца
+     */
+    OrderId: string;
+
+    /**
+     * Успешность операции
+     */
+    Success: boolean;
+
+    /**
+     * Статус транзакции:
+     * - при успешном сценарии: NEW
+     * - при неуспешном: REJECTED
+     */
+    Status: string;
+
+    /**
+     * Уникальный идентификатор транзакции в системе Банка
+     */
+    PaymentId: number;
+
+    /**
+     * Код ошибки, «0» - если успешно
+     */
+    ErrorCode: string;
+
+    /**
+     * Ссылка на страницу оплаты. По умолчанию ссылка доступна в течении 24 часов.
+     */
+    PaymentURL?: string;
+
+    /**
+     * Краткое описание ошибки
+     */
+    Message?: string;
+
+    /**
+     * Подробное описание ошибки
+     */
+    Details?: string;
 }
