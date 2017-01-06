@@ -61,7 +61,7 @@ export class TinkoffAcquiring implements Tinkoff {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             form: body
-        },  (error: any, response: RequestResponse, body: ResponseBodyBase) => {
+        },  (error: any, response: RequestResponse, body: string) => {
             callback(error, JSON.parse(body));
         })
     }
