@@ -30,36 +30,37 @@ export class TinkoffAcquiring implements Tinkoff {
     }
 
     init(options: InitOptions, callback: (error, body: InitResponseBody) => void) {
-        this.perform(options, callback);
+        this.perform(URLs.INIT, options, callback);
     }
 
     confirm(options: ConfirmOptions, callback: (error, body: ConfirmResponseBody) => void) {
-        this.perform(options, callback);
+        this.perform(URLs.CONFIRM, options, callback);
     }
 
     charge(options: ChargeOptions, callback: (error, body: ChargeResponseBody) => void) {
-        this.perform(options, callback);
+        this.perform(URLs.CHARGE, options, callback);
     }
 
     cancel(options: CancelOptions, callback: (error, body: CancelResponseBody) => void) {
-        this.perform(options, callback);
+        this.perform(URLs.CANCEL, options, callback);
     }
 
     getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void) {
-        this.perform(options, callback);
+        this.perform(URLs.GET_STATE, options, callback);
     }
 
-    private perform(options: OptionsBase, callback: (error: Error, body: ResponseBodyBase) => void) {
+    private perform(url: string, options: OptionsBase, callback: (error: Error, body: ResponseBodyBase) => void) {
         let body = Object.assign({}, options);
         body.TerminalKey = this.terminalKey;
         body.Password = this.password;
         body.Token = this.generateToken(body);
 
-        request.post(URLs.INIT, {
+        request.post({
+            url: url,
             headers: {
-                'content-type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: body
+            form: body
         },  (error: any, response: RequestResponse, body: ResponseBodyBase) => {
             callback(error, body);
         })
