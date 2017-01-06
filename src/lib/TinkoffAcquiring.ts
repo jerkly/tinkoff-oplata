@@ -11,6 +11,7 @@ import {OptionsBase} from "./api/OptionsBase";
 import {ResponseBodyBase} from "./api/ResponseBodyBase";
 import request = require("request");
 import RequestResponse = request.RequestResponse;
+import {Notification} from "./api/Notification";
 
 const URLs = {
     INIT:       'https://securepay.tinkoff.ru/rest/Init',
@@ -49,11 +50,22 @@ export class TinkoffAcquiring implements Tinkoff {
         this.perform(URLs.GET_STATE, options, callback);
     }
 
+    isTokenValid(data: Notification): boolean {
+        let bodyWithoutToken = Object.assign({Password: this.password}, data, {Token: undefined});
+        let token = this.generateToken(bodyWithoutToken);
+        return data.Token === token;
+    }
+
+    private generateToken(body): string {
+        let values = Object.keys(body).sort().map((key) => body[key]).join('');
+        return crypto.createHash('sha256').update(values).digest('hex');
+    };
+
     private perform(url: string, options: OptionsBase, callback: (error: Error, body: ResponseBodyBase) => void) {
         let body = Object.assign({}, options);
         body.TerminalKey = this.terminalKey;
         body.Password = this.password;
-        body.Token = generateToken(body);
+        body.Token = this.generateToken(body);
 
         request.post({
             url: url,
@@ -66,8 +78,3 @@ export class TinkoffAcquiring implements Tinkoff {
         })
     }
 }
-
-export let generateToken = (body): string => {
-    let values = Object.keys(body).sort().map((key) => body[key]).join('');
-    return crypto.createHash('sha256').update(values).digest('hex');
-};
