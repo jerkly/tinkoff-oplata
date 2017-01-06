@@ -62,7 +62,7 @@ export class TinkoffAcquiring implements Tinkoff {
             },
             form: body
         },  (error: any, response: RequestResponse, body: ResponseBodyBase) => {
-            callback(error, body);
+            callback(error, JSON.parse(body));
         })
     }
 
