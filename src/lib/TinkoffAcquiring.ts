@@ -53,7 +53,7 @@ export class TinkoffAcquiring implements Tinkoff {
         let body = Object.assign({}, options);
         body.TerminalKey = this.terminalKey;
         body.Password = this.password;
-        body.Token = this.generateToken(body);
+        body.Token = generateToken(body);
 
         request.post({
             url: url,
@@ -65,9 +65,9 @@ export class TinkoffAcquiring implements Tinkoff {
             callback(error, JSON.parse(body));
         })
     }
-
-    private generateToken(body) {
-        let values = Object.keys(body).sort().map((key) => body[key]).join('');
-        return crypto.createHash('sha256').update(values).digest('hex');
-    }
 }
+
+export let generateToken = (body): string => {
+    let values = Object.keys(body).sort().map((key) => body[key]).join('');
+    return crypto.createHash('sha256').update(values).digest('hex');
+};
