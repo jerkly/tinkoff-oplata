@@ -12,13 +12,16 @@ import {ResponseBodyBase} from "./api/ResponseBodyBase";
 import request = require("request");
 import RequestResponse = request.RequestResponse;
 import {Notification} from "./api/Notification";
+import {ResendResponseBody, ResendOptions} from "./api/Resend";
+import {isFunction} from "util";
 
 const URLs = {
     INIT:       'https://securepay.tinkoff.ru/rest/Init',
     CONFIRM:    'https://securepay.tinkoff.ru/rest/Confirm',
     CHARGE:     'https://securepay.tinkoff.ru/rest/Charge',
     CANCEL:     'https://securepay.tinkoff.ru/rest/Cancel',
-    GET_STATE:  'https://securepay.tinkoff.ru/rest/GetState'
+    GET_STATE:  'https://securepay.tinkoff.ru/rest/GetState',
+    RESEND:  'https://securepay.tinkoff.ru/rest/Resend'
 };
 
 export class TinkoffAcquiring implements Tinkoff {
@@ -48,6 +51,14 @@ export class TinkoffAcquiring implements Tinkoff {
 
     getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void) {
         this.perform(URLs.GET_STATE, options, callback);
+    }
+
+    resend(callback: (error, body: ResendResponseBody) => void)
+    resend(options: ResendOptions, callback: (error, body: ResendResponseBody) => void)
+    resend(options: ResendOptions | ((error, body: ResendResponseBody) => void), callback?: (error, body: ResendResponseBody) => void) {
+        let resultOptions = isFunction(options) ?  {} : options;
+        let resultCallback = isFunction(options) ? <(error, body: ResendResponseBody) => void> options : callback;
+        this.perform(URLs.RESEND, resultOptions, resultCallback);
     }
 
     isTokenValid(data: Notification): boolean {

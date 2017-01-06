@@ -5,6 +5,7 @@ import {GetStateOptions, GetStateResponseBody} from './api/GetState';
 import {InitOptions, InitResponseBody} from './api/Init';
 import {TinkoffAcquiring} from "./TinkoffAcquiring";
 import {Notification} from "./api/Notification";
+import {ResendResponseBody, ResendOptions} from "./api/Resend";
 
 export interface TinkoffOptions {
     terminalKey: string
@@ -17,6 +18,8 @@ export interface Tinkoff {
     charge(options: ChargeOptions, callback: (error, body: ChargeResponseBody) => void): void;
     cancel(options: CancelOptions, callback: (error, body: CancelResponseBody) => void): void;
     getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void): void;
+    resend(callback: (error, body: ResendResponseBody) => void): void;
+    resend(options: ResendOptions, callback: (error, body: ResendResponseBody) => void): void;
     isTokenValid(data: Notification): boolean;
 }
 
