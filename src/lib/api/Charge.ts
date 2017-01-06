@@ -3,11 +3,6 @@ import {ResponseBodyBase} from "./ResponseBodyBase";
 
 export interface ChargeOptions extends OptionsBase {
     /**
-     * Идентификатор терминала, выдается Продавцу Банком
-     */
-    TerminalKey: string;
-
-    /**
      * Уникальный идентификатор транзакции в системе Банка
      */
     PaymentId: number;
@@ -21,11 +16,6 @@ export interface ChargeOptions extends OptionsBase {
      * Идентификатор рекуррентного платежа (см. параметр Recurrent в методе Init)
      */
     RebillId: number;
-
-    /**
-     * 	Подпись запроса
-     */
-    Token: string;
 }
 
 export interface ChargeResponseBody extends ResponseBodyBase {

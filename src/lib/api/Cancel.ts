@@ -2,10 +2,6 @@ import {OptionsBase} from "./OptionsBase";
 import {ResponseBodyBase} from "./ResponseBodyBase";
 
 export interface CancelOptions extends OptionsBase {
-    /**
-     * Идентификатор терминала, выдается Продавцу Банком
-     */
-    TerminalKey: string;
 
     /**
      * Уникальный идентификатор транзакции в системе Банка
@@ -21,11 +17,6 @@ export interface CancelOptions extends OptionsBase {
      * Причина отмены
      */
     Reason?: string;
-
-    /**
-     * Подпись запроса
-     */
-    Roken: string;
 
     /**
      * Сумма отмены в копейках (**)

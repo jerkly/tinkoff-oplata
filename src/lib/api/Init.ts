@@ -3,12 +3,6 @@ import {ResponseBodyBase} from "./ResponseBodyBase";
 
 export interface InitOptions extends OptionsBase {
     /**
-     * Идентификатор терминала, выдается Продавцу Банком.
-     * Max length: 20
-     */
-    TerminalKey: string;
-
-    /**
      * Сумма в копейках.
      * Max length: 10
      */
@@ -36,12 +30,7 @@ export interface InitOptions extends OptionsBase {
      * Код валюты ISO 4217 (например, 643). Если передан Currency, и он разрешен для Продавца, то транзакция будет инициирована в переданной валюте. Иначе будет использована валюта по умолчанию для данного терминала
      * Max length: 3
      */
-    Currency: number;
-
-    /**
-     * Подпись запроса. Алгоритм формирования подписи описан в разделе "Подпись запросов"
-     */
-    Token: string;
+    Currency?: number;
 
     /**
      * Язык платежной формы. По умолчанию (если параметр не передан) - форма оплаты на русском языке.

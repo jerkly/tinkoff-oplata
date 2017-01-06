@@ -3,11 +3,6 @@ import {ResponseBodyBase} from "./ResponseBodyBase";
 
 export interface ConfirmOptions extends OptionsBase {
     /**
-     * Идентификатор терминала, выдается Продавцу Банком
-     */
-    TerminalKey: string;
-
-    /**
      * Уникальный идентификатор транзакции в системе Банка
      */
     PaymentId: number;
@@ -21,11 +16,6 @@ export interface ConfirmOptions extends OptionsBase {
      * Сумма в копейках
      */
     Amount?: number;
-
-    /**
-     * 	Подпись запроса
-     */
-    Token: string;
 }
 
 export interface ConfirmResponseBody extends ResponseBodyBase {

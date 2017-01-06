@@ -3,11 +3,6 @@ import {ResponseBodyBase} from "./ResponseBodyBase";
 
 export interface GetStateOptions extends OptionsBase {
     /**
-     * Идентификатор терминала, выдается Продавцу Банком
-     */
-    TerminalKey: string;
-
-    /**
      * Уникальный идентификатор транзакции в системе Банка
      */
     PaymentId: number;
@@ -16,11 +11,6 @@ export interface GetStateOptions extends OptionsBase {
      * IP-адрес клиента
      */
     IP?: string;
-
-    /**
-     * Подпись запроса
-     */
-    Token: string;
 }
 
 export interface GetStateResponseBody extends ResponseBodyBase {
