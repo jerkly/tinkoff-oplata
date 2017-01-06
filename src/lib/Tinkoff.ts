@@ -3,6 +3,7 @@ import {ChargeOptions, ChargeResponseBody} from './api/Charge';
 import {ConfirmOptions, ConfirmResponseBody} from './api/Confirm';
 import {GetStateOptions, GetStateResponseBody} from './api/GetState';
 import {InitOptions, InitResponseBody} from './api/Init';
+import {TinkoffAcquiring} from "./TinkoffAcquiring";
 
 export interface TinkoffOptions {
     terminalKey: string
@@ -21,4 +22,4 @@ export interface TinkoffConstructor {
     new (options: TinkoffOptions): Tinkoff;
 }
 
-export let Tinkoff: TinkoffConstructor;
+export let Tinkoff: TinkoffConstructor = TinkoffAcquiring;
