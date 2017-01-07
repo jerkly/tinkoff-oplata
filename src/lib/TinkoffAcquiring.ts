@@ -14,6 +14,11 @@ import RequestResponse = request.RequestResponse;
 import {Notification} from "./api/Notification";
 import {ResendResponseBody, ResendOptions} from "./api/Resend";
 import {isFunction} from "util";
+import {AddCustomerOptions, AddCustomerResponseBody} from "./api/card/AddCustomer";
+import {GetCustomerOptions, GetCustomerResponseBody} from "./api/card/GetCustomer";
+import {RemoveCustomerOptions, RemoveCustomerResponseBody} from "./api/card/RemoveCustomer";
+import {GetCardListOptions, GetCardListResponseBody} from "./api/card/GetCardList";
+import {RemoveCardOptions, RemoveCardResponseBody} from "./api/card/RemoveCard";
 
 const URLs = {
     INIT:       'https://securepay.tinkoff.ru/rest/Init',
@@ -21,7 +26,13 @@ const URLs = {
     CHARGE:     'https://securepay.tinkoff.ru/rest/Charge',
     CANCEL:     'https://securepay.tinkoff.ru/rest/Cancel',
     GET_STATE:  'https://securepay.tinkoff.ru/rest/GetState',
-    RESEND:  'https://securepay.tinkoff.ru/rest/Resend'
+    RESEND:  'https://securepay.tinkoff.ru/rest/Resend',
+
+    ADD_CUSTOMER: 'https://securepay.tinkoff.ru/rest/AddCustomer',
+    GET_CUSTOMER: 'https://securepay.tinkoff.ru/rest/GetCustomer',
+    REMOVE_CUSTOMER: 'https://securepay.tinkoff.ru/rest/RemoveCustomer',
+    GET_CARD_LIST: 'https://securepay.tinkoff.ru/rest/GetCardList',
+    REMOVE_CARD: 'https://securepay.tinkoff.ru/rest/RemoveCard'
 };
 
 export class TinkoffAcquiring implements Tinkoff {
@@ -59,6 +70,26 @@ export class TinkoffAcquiring implements Tinkoff {
         let resultOptions = isFunction(options) ?  {} : options;
         let resultCallback = isFunction(options) ? <(error, body: ResendResponseBody) => void> options : callback;
         this.perform(URLs.RESEND, resultOptions, resultCallback);
+    }
+
+    addCustomer(options: AddCustomerOptions, callback: (error, body: AddCustomerResponseBody) => void): void {
+        this.perform(URLs.ADD_CUSTOMER, options, callback);
+    }
+
+    getCustomer(options: GetCustomerOptions, callback: (error, body: GetCustomerResponseBody) => void): void {
+        this.perform(URLs.GET_CUSTOMER, options, callback);
+    }
+
+    removeCustomer(options: RemoveCustomerOptions, callback: (error, body: RemoveCustomerResponseBody) => void): void {
+        this.perform(URLs.REMOVE_CUSTOMER, options, callback);
+    }
+
+    getCardList(options: GetCardListOptions, callback: (error, body: GetCardListResponseBody) => void): void {
+        this.perform(URLs.GET_CARD_LIST, options, (error, body) => callback(error, <GetCardListResponseBody>{cards: body}));
+    }
+
+    removeCard(options: RemoveCardOptions, callback: (error, body: RemoveCardResponseBody) => void): void {
+        this.perform(URLs.REMOVE_CARD, options, callback);
     }
 
     isTokenValid(data: Notification): boolean {
