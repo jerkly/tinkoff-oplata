@@ -14,8 +14,8 @@ import {RemoveCustomerOptions, RemoveCustomerResponseBody} from "./api/card/Remo
 import {GetCardListOptions, GetCardListResponseBody} from "./api/card/GetCardList";
 
 export interface TinkoffOptions {
-    terminalKey: string
-    password: string
+    terminalKey: string;
+    password: string;
 }
 
 export interface Tinkoff {

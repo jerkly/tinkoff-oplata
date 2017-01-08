@@ -5,7 +5,7 @@ export interface ChargeOptions extends OptionsBase {
     /**
      * Уникальный идентификатор транзакции в системе Банка
      */
-    PaymentId: number;
+    PaymentId: number | string;
 
     /**
      * IP-адрес клиента
@@ -15,7 +15,7 @@ export interface ChargeOptions extends OptionsBase {
     /**
      * Идентификатор рекуррентного платежа (см. параметр Recurrent в методе Init)
      */
-    RebillId: number;
+    RebillId: number | string;
 }
 
 export interface ChargeResponseBody extends ResponseBodyBase {
@@ -44,7 +44,7 @@ export interface ChargeResponseBody extends ResponseBodyBase {
     /**
      * Уникальный идентификатор транзакции в системе Банка
      */
-    PaymentId: number;
+    PaymentId: string;
 
     /**
      * Код ошибки, «0» - если успешно

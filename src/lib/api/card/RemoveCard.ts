@@ -5,7 +5,7 @@ export interface RemoveCardOptions extends OptionsBase  {
     /**
      * Идентификатор карты в системе Банка
      */
-    CardId: number;
+    CardId: number | string;
     /**
      * Идентификатор покупателя в системе Продавца
      */
@@ -24,7 +24,7 @@ export interface RemoveCardResponseBody extends ResponseBodyBase {
     /**
      * Идентификатор карты в системе Банка
      */
-    CardId: number;
+    CardId: string;
     /**
      * Идентификатор покупателя в системе Продавца
      */

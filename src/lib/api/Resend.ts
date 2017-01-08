@@ -2,7 +2,7 @@ export interface ResendOptions {
     /**
      * Id платежа по которому необходимо получить нотификацию их архива
      */
-    PaymentId: number;
+    PaymentId: number | string;
     /**
      * Тип нотификации который необходимо получить из архива повторно. *Параметр обязателен если передан PaymentId
      */

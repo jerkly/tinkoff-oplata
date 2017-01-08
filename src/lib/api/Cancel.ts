@@ -6,7 +6,7 @@ export interface CancelOptions extends OptionsBase {
     /**
      * Уникальный идентификатор транзакции в системе Банка
      */
-    PaymentId: number;
+    PaymentId: number | string;
 
     /**
      * IP-адрес клиента
@@ -45,7 +45,7 @@ export interface CancelResponseBody extends ResponseBodyBase {
     /**
      * Уникальный идентификатор транзакции в системе Банка
      */
-    PaymentId: number;
+    PaymentId: string;
 
     /**
      * Код ошибки, «0» - если успешно
