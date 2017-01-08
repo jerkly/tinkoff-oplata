@@ -5,6 +5,7 @@ export {GetStateOptions, GetStateResponseBody} from './lib/api/GetState';
 export {InitOptions, InitResponseBody} from './lib/api/Init';
 export {ResendOptions, ResendResponseBody} from './lib/api/Resend';
 export {Notification} from './lib/api/Notification';
+export {PaymentStatus} from './lib/api/PaymentStatus';
 
 import {AddCustomerOptions, AddCustomerResponseBody} from "./lib/api/card/AddCustomer";
 import {GetCustomerOptions, GetCustomerResponseBody} from "./lib/api/card/GetCustomer";

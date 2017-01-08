@@ -1,5 +1,6 @@
 import {OptionsBase} from "./OptionsBase";
 import {ResponseBodyBase} from "./ResponseBodyBase";
+import {PaymentStatus} from "./PaymentStatus";
 
 export interface ChargeOptions extends OptionsBase {
     /**
@@ -35,11 +36,9 @@ export interface ChargeResponseBody extends ResponseBodyBase {
     Success: boolean;
 
     /**
-     * Статус транзакции:
-     * - при успешном сценарии: NEW
-     * - при неуспешном: REJECTED
+     * Статус транзакции
      */
-    Status: string;
+    Status: PaymentStatus;
 
     /**
      * Уникальный идентификатор транзакции в системе Банка

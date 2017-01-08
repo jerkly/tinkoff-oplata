@@ -1,3 +1,4 @@
+import {PaymentStatus} from "./PaymentStatus";
 export interface Notification {
     /**
      * 	Идентификатор терминала, выдается Продавцу Банком
@@ -17,7 +18,7 @@ export interface Notification {
     /**
      * Статус транзакции
      */
-    Status: string;
+    Status: PaymentStatus;
 
     /**
      * Уникальный идентификатор транзакции в системе Банка

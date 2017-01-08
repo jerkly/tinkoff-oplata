@@ -1,4 +1,4 @@
-export enum Status {
+export enum PaymentStatus {
     NEW = <any> 'NEW',
     CANCELED = <any> 'CANCELED',
     PREAUTHORIZING = <any> 'PREAUTHORIZING',

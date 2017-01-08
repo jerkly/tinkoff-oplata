@@ -21,18 +21,18 @@ import {GetCardListOptions, GetCardListResponseBody} from "./api/card/GetCardLis
 import {RemoveCardOptions, RemoveCardResponseBody} from "./api/card/RemoveCard";
 
 const URLs = {
-    INIT:       'https://securepay.tinkoff.ru/rest/Init',
-    CONFIRM:    'https://securepay.tinkoff.ru/rest/Confirm',
-    CHARGE:     'https://securepay.tinkoff.ru/rest/Charge',
-    CANCEL:     'https://securepay.tinkoff.ru/rest/Cancel',
-    GET_STATE:  'https://securepay.tinkoff.ru/rest/GetState',
-    RESEND:  'https://securepay.tinkoff.ru/rest/Resend',
+    INIT:               'https://securepay.tinkoff.ru/rest/Init',
+    CONFIRM:            'https://securepay.tinkoff.ru/rest/Confirm',
+    CHARGE:             'https://securepay.tinkoff.ru/rest/Charge',
+    CANCEL:             'https://securepay.tinkoff.ru/rest/Cancel',
+    GET_STATE:          'https://securepay.tinkoff.ru/rest/GetState',
+    RESEND:             'https://securepay.tinkoff.ru/rest/Resend',
 
-    ADD_CUSTOMER: 'https://securepay.tinkoff.ru/rest/AddCustomer',
-    GET_CUSTOMER: 'https://securepay.tinkoff.ru/rest/GetCustomer',
-    REMOVE_CUSTOMER: 'https://securepay.tinkoff.ru/rest/RemoveCustomer',
-    GET_CARD_LIST: 'https://securepay.tinkoff.ru/rest/GetCardList',
-    REMOVE_CARD: 'https://securepay.tinkoff.ru/rest/RemoveCard'
+    ADD_CUSTOMER:       'https://securepay.tinkoff.ru/rest/AddCustomer',
+    GET_CUSTOMER:       'https://securepay.tinkoff.ru/rest/GetCustomer',
+    REMOVE_CUSTOMER:    'https://securepay.tinkoff.ru/rest/RemoveCustomer',
+    GET_CARD_LIST:      'https://securepay.tinkoff.ru/rest/GetCardList',
+    REMOVE_CARD:        'https://securepay.tinkoff.ru/rest/RemoveCard'
 };
 
 export class TinkoffAcquiring implements Tinkoff {
