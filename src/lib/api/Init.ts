@@ -72,7 +72,7 @@ export interface InitOptions extends OptionsBase {
      * Максимальное количество пар «ключ-значение» не может превышать 20.
      * Пример передачи данных в параметре DATA: DATA=Phone=+71234567890|Email=a@test.com
      */
-    DATA: string;
+    DATA?: string;
 }
 
 export interface InitResponseBody extends ResponseBodyBase {
