@@ -1,20 +1,20 @@
-var gulp = require('gulp');
-var path = require('path');
-var fs = require('fs');
-var typescript = require('gulp-typescript');
-var merge = require('merge-stream');
-var sourcemaps = require('gulp-sourcemaps');
-var count = require('gulp-count');
-var clean = require('gulp-clean');
+let gulp = require('gulp');
+let path = require('path');
+let fs = require('fs');
+let typescript = require('gulp-typescript');
+let merge = require('merge-stream');
+let sourcemaps = require('gulp-sourcemaps');
+let count = require('gulp-count');
+let clean = require('gulp-clean');
 
-var package = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json')));
-var SRC_FOLDER = path.resolve(__dirname, 'src');
-var DIST_FOLDER = path.resolve(__dirname, 'dist');
+let package = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json')));
+let SRC_FOLDER = path.resolve(__dirname, 'src');
+let DIST_FOLDER = path.resolve(__dirname, 'dist');
 
-var tsProject = typescript.createProject(path.resolve(__dirname, 'tsconfig.json'));
+let tsProject = typescript.createProject(path.resolve(__dirname, 'tsconfig.json'));
 
 gulp.task(package.name + ':build-ts', function () {
-    var tsResult = tsProject.src()
+    let tsResult = tsProject.src()
         .pipe(count("'" + package.name + ':build-ts\': ## files'))
         .pipe(sourcemaps.init())
         .pipe(tsProject());
