@@ -5,6 +5,7 @@ import {CancelOptions, CancelResponseBody} from './api/Cancel';
 import {ChargeOptions, ChargeResponseBody} from './api/Charge';
 import {ConfirmOptions, ConfirmResponseBody} from './api/Confirm';
 import {GetStateOptions, GetStateResponseBody} from './api/GetState';
+import {FinishOptions, FinishResponseBody} from './api/Finish';
 import {InitOptions, InitResponseBody} from './api/Init';
 
 import {OptionsBase} from "./api/OptionsBase";
@@ -27,6 +28,7 @@ const URLs = {
     CANCEL:             'https://securepay.tinkoff.ru/rest/Cancel',
     GET_STATE:          'https://securepay.tinkoff.ru/rest/GetState',
     RESEND:             'https://securepay.tinkoff.ru/rest/Resend',
+    FINISH:             'https://securepay.tinkoff.ru/rest/FinishAuthorize',
 
     ADD_CUSTOMER:       'https://securepay.tinkoff.ru/rest/AddCustomer',
     GET_CUSTOMER:       'https://securepay.tinkoff.ru/rest/GetCustomer',
@@ -58,6 +60,10 @@ export class TinkoffAcquiring implements Tinkoff {
 
     cancel(options: CancelOptions, callback: (error, body: CancelResponseBody) => void) {
         this.perform(URLs.CANCEL, options, callback);
+    }
+
+    finish(options: FinishOptions, callback: (error, body: FinishResponseBody) => void) {
+        this.perform(URLs.FINISH, options, callback);
     }
 
     getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void) {
