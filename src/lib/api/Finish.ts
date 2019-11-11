@@ -37,7 +37,7 @@ export interface FinishOptions extends OptionsBase {
      * Способ платежа
      * Max length: 50    
      */
-    Route: string;
+    Route?: string;
 
     /**
      * Источник платежа
