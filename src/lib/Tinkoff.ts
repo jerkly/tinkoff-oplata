@@ -2,6 +2,7 @@ import {CancelOptions, CancelResponseBody} from './api/Cancel';
 import {ChargeOptions, ChargeResponseBody} from './api/Charge';
 import {ConfirmOptions, ConfirmResponseBody} from './api/Confirm';
 import {GetStateOptions, GetStateResponseBody} from './api/GetState';
+import {FinishOptions, FinishResponseBody} from './api/Finish';
 import {InitOptions, InitResponseBody} from './api/Init';
 import {TinkoffAcquiring} from "./TinkoffAcquiring";
 import {Notification} from "./api/Notification";
@@ -23,6 +24,7 @@ export interface Tinkoff {
     confirm(options: ConfirmOptions, callback: (error, body: ConfirmResponseBody) => void): void;
     charge(options: ChargeOptions, callback: (error, body: ChargeResponseBody) => void): void;
     cancel(options: CancelOptions, callback: (error, body: CancelResponseBody) => void): void;
+    finish(options: FinishOptions, callback: (error, body: FinishResponseBody) => void): void;
     getState(options: GetStateOptions, callback: (error, body: GetStateResponseBody) => void): void;
     resend(callback: (error, body: ResendResponseBody) => void): void;
     resend(options: ResendOptions, callback: (error, body: ResendResponseBody) => void): void;
