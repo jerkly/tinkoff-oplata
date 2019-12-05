@@ -105,7 +105,7 @@ export class TinkoffAcquiring implements Tinkoff {
     }
 
     private generateToken(body): string {
-        let values = Object.keys(body).sort().map((key) => body[key]).join('');
+    let values = Object.keys(body).filter(k => !['DATA', 'Receipt'].includes(k)).sort().map((key) => body[key]).join('');
         return crypto.createHash('sha256').update(values).digest('hex');
     };
 
